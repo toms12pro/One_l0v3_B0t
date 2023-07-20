@@ -1,0 +1,35 @@
+says5luqoxknpio2kct4bkpu3u6sidal5b67ztv74ng4dm2vlhsz62yd.onion
+jenkins
+Shanes Stuff
+2021-07-01 17:03:35
+metin
+[0x80070002] FIOReadFileIntoBuffer:(1452): Sistem belirtilen dosyayı bulamıyor.
+
+https://www.jesusamieiro.com/installing-and-configuring-a-supervisor-in-debian-to-execute-a-laravel-queue-worker/
+https://www.cyberithub.com/a-complete-guide-to-supervisor-in-linux-with-examples/
+[root@cyberithub ~]# cd /etc
+[root@cyberithub etc]# ls supervisor*
+supervisord.conf
+supervisord.d:
+
+[root@cyberithub ~]# systemctl start supervisord
+[root@cyberithub ~]# systemctl enable supervisord
+Created symlink /etc/systemd/system/multi-user.target.wants/supervisord.service → /usr/lib/systemd/system/supervisord.service.
+
+echo_supervisord_conf > /etc/supervisord.conf
+
+/etc/supervisor/conf.d
+[program:my-project-queue-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /home/my-project/www/artisan queue:work
+autostart=true
+autorestart=true
+user=my-project-user
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/home/my-project/www/storage/logs/my-project-queue-worker.log
+
+[root@cyberithub ~]# supervisorctl reread
+sample: available
+[root@cyberithub ~]# supervisorctl update
+sshd: updated process group

@@ -1,0 +1,98 @@
+1- install termux (apt install 
+python python-pip libexpat 
+openssl python-cryptography)
+2- pip install requests aiogram 
+setuptools 
+binance-futures-connector
+3- run termux-setup-storage 
+inside termux
+4- install telegram and
+binance apps
+
+
+Generating public/private rsa key pair.
+Your identification has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_rsa_key
+Your public key has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_rsa_key.pub
+The key fingerprint is:
+SHA256:iqYbLexkVc9eMYD+iPApo2RGh1trA/UvPkDFycW8gGc u0_a150@localhost
+The key's randomart image is:
++---[RSA 3072]----+
+|    + =o.        |
+|   o E.o .       |
+|  o =.o . o      |
+| +.+ o.+   o     |
+|. *ooo.oS .      |
+| *oB+o.+..       |
+|+.BoB o .        |
+|.+ = o           |
+|  +.  .          |
++----[SHA256]-----+
+Generating public/private dsa key pair.
+Your identification has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_dsa_key
+Your public key has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_dsa_key.pub
+The key fingerprint is:
+SHA256:k1J2r7iEhKNdhOIKXTyZ4gsNR3ofzvoOBt08V6l4TU0 u0_a150@localhost
+The key's randomart image is:
++---[DSA 1024]----+
+|  .       E      |
+| o . +   +       |
+|o = O . * o      |
+| X X * B o .     |
+|+ * @ B S   .    |
+|.+ = B o o .     |
+|. * . . o .      |
+| . o   . .       |
+|   .o   .        |
++----[SHA256]-----+
+Generating public/private ecdsa key pair.
+Your identification has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_ecdsa_key
+Your public key has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_ecdsa_key.pub
+The key fingerprint is:
+SHA256:UgIczbqOD0q9kSnXC+IHX/BUOZ183yIdfAZSqjpkcZw u0_a150@localhost
+The key's randomart image is:
++---[ECDSA 256]---+
+|   .o+  + ..oo.  |
+|    ..o+.+..oo o |
+|     .o.oE..o =  |
+|   ... oo .. + . |
+|    +..oS.  . .  |
+| .. =oo..        |
+| ++X.. o         |
+|o.=+= . .        |
+|...o..           |
++----[SHA256]-----+
+Generating public/private ed25519 key pair.
+Your identification has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_ed25519_key
+Your public key has been saved in /data/data/com.termux/files/usr/etc/ssh/ssh_host_ed25519_key.pub
+The key fingerprint is:
+SHA256:OI2HnjHckRP87wnRowbXbA7WmbisdW1LTwwJtUxEK/k u0_a150@localhost
+The key's randomart image is:
++--[ED25519 256]--+
+|       ..    +=  |
+|        .o  .+ o |
+|        +. *o++. |
+|     . *.oB Xoo  |
+|      O S= O oEo |
+|     . *  B + + o|
+|      o  + + + + |
+|        .   o . .|
+|                 |
++----[SHA256]-----+
+
+
+https://glow.li/posts/run-an-ssh-server-on-your-android-with-termux/
+sshd
+
+your key pair will have been saved under ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub. You can then add it to the ~/.ssh/authorized_keys with
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    chmod 600 ~/.ssh/authorized_keys
+    
+ssh $IP -p 8022 -i %PATH_TO_KEY-FILE%/%NAME_OF_KEY%
+
+killall sshd
+
+sshd -d
+
+chmod 700 ~
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
